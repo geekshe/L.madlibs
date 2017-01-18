@@ -58,18 +58,28 @@ def show_madlib_form():
 def show_madlib():
     """
     Display the clever MadLib
-     """
+    """
 
     person = request.args.get("person")
     color = request.args.get("color")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
+    animal = request.args.getlist("animal")
+
+
 
     return render_template("madlib.html",
                            person=person,
                            color=color,
                            noun=noun,
-                           adjective=adjective)
+                           adjective=adjective,
+                           animals=animal)
+
+
+
+    # Take the 1st content of animal and append it to list
+    # Keep going until you run out.
+    # Pass list to /madlib
 
 
 if __name__ == '__main__':
